@@ -1,4 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-app.js";
+
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -6,31 +7,30 @@ import {
   signOut
 } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-auth.js";
 import {
-  getDatabase,  // ✅ Correct import
+  getDatabase,  
   ref,
-  set
+  set,
 } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-database.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAUby9tQlTb1oRWWNUJJFx3XZ4MWFAFC40",
-  authDomain: "blog-app-3c075.firebaseapp.com",
-  projectId: "blog-app-3c075",
-  storageBucket: "blog-app-3c075.appspot.com",  // ✅ Fixed storage bucket
-  messagingSenderId: "180806435607",
-  appId: "1:180806435607:web:499a10a41c6ef43d8f6d52"
-};
+    apiKey: "AIzaSyBH9UhJKtp8zZu-Th_D93-dkXnFLDFnjVM",
+    authDomain: "og-application-9afab.firebaseapp.com",
+    projectId: "og-application-9afab",
+    storageBucket: "og-application-9afab.firebasestorage.app",
+    messagingSenderId: "526496738648",
+    appId: "1:526496738648:web:107a07d944d5e53c6c092d",
+    measurementId: "G-0M9TDBE1HR"
+  };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const database = getDatabase(app);  // ✅ Correct database initialization
+const database = getDatabase(app);
 
 export {
   auth,
   createUserWithEmailAndPassword,
-  database,  // ✅ Now correctly exported
+  database,
   ref,
   set,
   onAuthStateChanged,
-  signOut
 };

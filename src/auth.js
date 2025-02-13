@@ -49,26 +49,36 @@ import {
               });
       }
   };
-  
-  onAuthStateChanged(auth, (user) => {
-      const LogOutBtn = document.getElementById("logout-btn");
-      if (LogOutBtn) {
-          if (user) {
-              LogOutBtn.style.display = "block";
-              LogOutBtn.addEventListener("click", (e) => {
-                  e.preventDefault();
-                  signOut(auth).then(() => {
-                      window.location.href = "./signUp.html";
-                  });
-              });
-          } else {
-              console.log("User not logged in");
-              LogOutBtn.style.display = "none";
-          }
+
+// onAuthStateChanged(auth, (user) => {
+//       const LogOutBtn = document.getElementById("logout-btn");
+//       if (LogOutBtn) {
+//           if (user) {
+//               LogOutBtn.style.display = "block";
+//               LogOutBtn.addEventListener("click", (e) => {
+//                   e.preventDefault();
+//                   signOut(auth).then(() => {
+//                       window.location.href = "./signUp.html";
+//                   });
+//               });
+//           } else {
+//               console.log("User not logged in");
+//               LogOutBtn.style.display = "none";
+//           }
+//       }
+//   });
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+      if (window.location.pathname !== "/post.html") {
+        window.location.href = "../post.html";
       }
+    } else {
+      if (window.location.pathname !== "/index.html") {
+        window.location.href = "../index.html";
+      }
+    }
   });
   
-  // Ensure DOM is loaded before adding event listeners
   document.addEventListener("DOMContentLoaded", () => {
       const SignUpbtn = document.getElementById("Signup-btn");
       if (SignUpbtn) {
